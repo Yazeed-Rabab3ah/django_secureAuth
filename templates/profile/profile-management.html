@@ -1,0 +1,42 @@
+{% load static %}
+
+<html>
+    <head>
+
+        <meta charset="utf-8" />
+
+        <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1"/>
+
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/solar/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+        <title> Taskly </title>
+
+    </head>
+    {% include 'navbar.html' %}
+
+    <div class= 'container bg-white shadow-md p-5 form-layout' >
+        
+        <h3> Profile info </h3>
+        
+        <p>{{ user.username }}</p>
+        <br/>
+        <p>{{ user.email }}<p/>
+        
+        
+        
+        <a class="btn btn-primary navbar-btn" href = "{% url 'update-user' username=request.user.username %}" >Update user info</a>
+        
+        <br/><hr>
+
+        <a class="btn btn-primary navbar-btn" href = "{% url 'delete-user'  username=request.user.username %}" >delete user</a>
+        
+        <br/><hr>
+
+        <a class="btn btn-primary" href="{% url 'dashboard' request.user.username %}">Back to the dashboard</a>
+
+
+    </div>
+
+</html>

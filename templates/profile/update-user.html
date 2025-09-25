@@ -1,0 +1,61 @@
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+<html>
+
+
+    <head>
+
+        <meta charset="utf-8" />
+
+        <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1"/>
+
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/solar/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+        <title> Taskly </title>
+
+    </head>
+
+
+
+
+    {% include 'navbar.html' %}
+
+    <div class= 'container bg-white shadow-md p-5 form-layout' >
+        <h3> Update User info</h3>
+        <hr>
+        <br>
+        <form method = "POST" autocomplete="off" >
+            {% csrf_token %} 
+            
+            {{ form.username|as_crispy_field }}
+            <br/>
+            {{ form.email|as_crispy_field }}
+            <br/>
+             
+            {{ form.image|as_crispy_field }}
+            <br/> 
+            {{ form.title|as_crispy_field }}
+            <br/> 
+            {{ form.skills|as_crispy_field }}
+            <br/> 
+            {{ form.major|as_crispy_field }}
+            <br/>
+
+
+
+            <input class="btn btn-primary navbar-btn" type="submit" value"update"/>
+
+
+
+
+
+        </form> 
+    </div>
+
+
+
+</html>

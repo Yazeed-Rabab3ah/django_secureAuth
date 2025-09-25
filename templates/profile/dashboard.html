@@ -1,0 +1,40 @@
+{% load static %}
+
+<html>
+    <head>
+
+        <meta charset="utf-8" />
+
+        <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1"/>
+
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/solar/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+        <title> Taskly </title>
+
+    </head>
+    {% include 'navbar.html' %}
+
+    <div class= 'container bg-white shadow-md p-5 form-layout' >
+        
+        <h3> This is Dashboard Page</h3>
+        
+        <br/><hr/>
+
+      
+
+        <form  method="post" action="{% url 'logout' %}">  <!-- used a form to ensure that the http method for the logout is POST-->
+            {% csrf_token %}
+            <button class="btn btn-primary navbar-btn" type="submit">logout</button>
+        </form>
+       
+        <br/><hr/>
+
+        <a class="btn btn-primary navbar-btn" href="{% url 'profile-management' username=request.user.username %}">Profile management</a>
+
+
+
+    </div>
+
+</html>

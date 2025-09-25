@@ -1,0 +1,51 @@
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+<html>
+
+
+    <head>
+
+        <meta charset="utf-8" />
+
+        <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1"/>
+
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/solar/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+        <title> Taskly </title>
+
+    </head>
+
+
+
+
+    {% include 'navbar.html' %}
+
+    <div class= 'container bg-white shadow-md p-5 form-layout' >
+        <h3> Delete User</h3>
+        <hr>
+        <br>
+        <form method = "POST" autocomplete="off" >
+            {% csrf_token %} 
+        <p>Are you sure you want to delete the user <p/>
+
+            <div class="btn-container">
+                <a class="btn btn-primary" href="{% url 'profile-management'  username=request.user.username %}">Go Back</a>
+                
+            
+
+                <input class="btn btn-primary navbar-btn" type="submit" value"delete"/>
+            </div>
+
+
+
+
+        </form> 
+    </div>
+
+
+
+</html>
