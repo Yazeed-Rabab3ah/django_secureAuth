@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv  
+
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,13 +22,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-aq9rw45hm_3jrk2_=5afqf4&@*c-@fc2d^rb^s!tlq=)$59^*m'
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Now read variables from .env
+SECRET_KEY = os.getenv("SECRET_KEY") 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','be11-176-29-229-222.ngrok-free.app','dbda-176-29-229-222.ngrok-free.app']
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+]
+
 CSRF_TRUSTED_ORIGINS = ['https://dbda-176-29-229-222.ngrok-free.app']
 
 # Application definition
